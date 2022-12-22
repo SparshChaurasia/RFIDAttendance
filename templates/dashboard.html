@@ -1,5 +1,69 @@
 {% extends 'bases/base.html' %}
 {% block title %}Dashboard{% endblock title %}
 {% block content %}
-This is dashboard
+<div class="content mx-5 my-5">
+<form action="" method="get">
+    <h4>Filter <i class="fa-solid fa-filter"></i></h4>
+    <div class="dropdown d-inline">
+        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Select Class
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="#">9A</a></li>
+            <li><a class="dropdown-item" href="#">9B</a></li>
+            <li><a class="dropdown-item" href="#">10A</a></li>
+            <li><a class="dropdown-item" href="#">10B</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item active" href="#">All</a></li>
+        </ul>
+    </div>
+    <div class="dropdown d-inline">
+        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort By
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item active" href="#">Time</a></li>
+            <li><a class="dropdown-item" href="#">Class</a></li>
+            <li><a class="dropdown-item" href="#">Name</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">None</a></li>
+        </ul>
+    </div>
+</form>
+<hr>
+<table class="table table-striped-columns">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Class</th>
+      <th scope="col">Time</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>On time</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+      <td>On time</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry the Bird</td>
+      <td>uwu</td>
+      <td>@twitter</td>
+      <td>Late</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 {% endblock content %}
