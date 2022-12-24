@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from .models import Student, Entry
 
 @csrf_exempt
 def request(request):
@@ -7,5 +8,9 @@ def request(request):
         return HttpResponse("Invalid request method!") 
     
     uid = request.POST.get("uid")
-    print(uid)
-    return HttpResponse(uid)    
+    stud = Student.objects.get(UID=uid)
+
+    entry = Entry(Stud=stud)
+    entry.save()
+
+    return HttpResponse(200)    
