@@ -1,4 +1,6 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
+from django.http import JsonResponse, HttpResponse
+from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 from .models import Student, Entry
 
@@ -27,5 +29,7 @@ def r_list(request):
         return HttpResponse("Invalid request method!") 
 
     entry = Entry.objects.all()
-    print("from api", entry)
-    return HttpResponse(entry) 
+    entry_json = serializers.serialize("json", entry)
+    # print("from api", entry)
+
+    return HttpResponse(entry_json, content_type='application/json')
