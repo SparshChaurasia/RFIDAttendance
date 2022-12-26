@@ -21,6 +21,8 @@ class Student(models.Model):
 
 class Entry(models.Model):
     Stud = models.ForeignKey(Student, models.CASCADE)
+    StudName = models.CharField(max_length=255, null=True)
+    StudClass = models.CharField(max_length=3, null=True)
     DateTime = models.DateTimeField(auto_now_add=True)
 
     def save(self, *args, **kwargs):
