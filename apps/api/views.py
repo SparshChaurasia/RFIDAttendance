@@ -15,7 +15,7 @@ def r_new(request):
     uid = request.POST.get("uid")
     stud = Student.objects.get(UID=uid)
 
-    entry = Entry(Stud=stud)
+    entry = Entry(Stud=stud, StudName=stud.Name, StudClass=stud.Class)
     entry.save()
 
     return HttpResponse(200)    
@@ -29,7 +29,5 @@ def r_list(request):
         return HttpResponse("Invalid request method!") 
 
     entry = Entry.objects.all()
-    entry_json = serializers.serialize("json", entry)
-    # print("from api", entry)
 
-    return HttpResponse(entry_json, content_type='application/json')
+    return JsonResponse(list(entry.values()), safe=False)
