@@ -1,5 +1,9 @@
 {% extends 'bases/base.html' %}
 {% block title %}Dashboard{% endblock title %}
+{% load static %}
+{% block javascript %}
+<script src="{% static 'js/ajax.js' %}"></script>
+{% endblock javascript  %}
 {% block content %}
 <div class="content mx-5 my-5">
 <form action="" method="get">
@@ -41,28 +45,7 @@
       <th scope="col">Status</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>On time</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>On time</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry the Bird</td>
-      <td>uwu</td>
-      <td>@twitter</td>
-      <td>Late</td>
-    </tr>
+  <tbody id="table-data-container"> 
   </tbody>
 </table>
 </div>
