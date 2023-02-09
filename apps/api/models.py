@@ -1,5 +1,4 @@
 from django.db import models
-from datetime import date, datetime
 
 class Classes(models.TextChoices):
     _9A = "9A"
@@ -24,8 +23,8 @@ class Entry(models.Model):
     Stud = models.ForeignKey(Student, models.CASCADE)
     StudName = models.CharField(max_length=255, null=True) # Split name and class field for json serialization
     StudClass = models.CharField(max_length=3, null=True)
-    Date = models.DateField(date.today(), null=True) # Split date and time field for json serialization
-    Time = models.TimeField(datetime.now().time(), null=True)
+    Date = models.DateField(auto_now_add=True, null=True) # Split date and time field for json serialization
+    Time = models.TimeField(auto_now_add=True, null=True)
 
     def save(self, *args, **kwargs):
         return super(Entry, self).save(*args, **kwargs)
