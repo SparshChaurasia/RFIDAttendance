@@ -12,7 +12,7 @@ $(document).ready(function(){
                                     <th scope="row">${i}</th>
                                     <td>${entry.StudName}</td>
                                     <td>${entry.StudClass}</td>
-                                    <td>${entry.DateTime}</td>
+                                    <td>${entry.Time}</td>
                                     <td>-</td>
                                 </tr>`;
                     $("#table-data-container").append(html);

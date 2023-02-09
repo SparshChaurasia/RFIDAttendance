@@ -29,5 +29,5 @@ def r_list(request):
         return HttpResponse("Invalid request method!") 
 
     entry = Entry.objects.all()
-
-    return JsonResponse(list(entry.values()), safe=False)
+    res = JsonResponse(list(entry.values()), safe=False)
+    return res
