@@ -6,6 +6,9 @@
 {% endblock javascript  %}
 {% block content %}
 <div class="content mx-5 my-5">
+<h2>Today's Attendance</h2>
+<span>{% now "j/n/y" %}</span>
+<hr>
 <form action="" method="get">
     <h4>Filter <i class="fa-solid fa-filter"></i></h4>
     <div class="dropdown d-inline">
