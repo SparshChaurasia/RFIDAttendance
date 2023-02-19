@@ -8,6 +8,11 @@
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <!-- CSS -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -24,7 +29,7 @@
 <header>
     {% include 'includes/navbar.html' %}
 </header>
-<body>
+<body style="font-family: 'Roboto Mono', monospace;">
     {% block content %}{% endblock content %}
 </body>
 </html>
