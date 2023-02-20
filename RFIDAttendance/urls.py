@@ -25,6 +25,6 @@ urlpatterns = [
     path("", views.index),
     path("dashboard/", views.dashboard),
     path("records/", views.records),
-    path("about/", views.about),
+    path("user/", views.user),
     path("admin/", admin.site.urls)
 ]

@@ -14,7 +14,7 @@
           <a class="nav-link active" aria-current="page" href="/">HOME</a>
         </li>
         <li class="nav-item mx-3">
-          <a class="nav-link active" aria-current="page" href="/about">ABOUT</a>
+          <a class="nav-link active" aria-current="page" href="/user">USER</a>
         </li>
         <li class="nav-item mx-3">
           <a class="nav-link" href="/dashboard">DASHBOARD</a>
@@ -27,7 +27,7 @@
         </li>
       </ul>
       <div class="user-name d-flex mx-4 my-auto">
-        <h5><i class="fa-solid fa-user"></i> {{ user }}</h5>
+        <h5><i class="fa-solid fa-user"></i> <a href="/user", style="text-decoration: none; color: black;">{{ user }}</a></h5>
       </div>
       <a href="{% url 'logout' %}" class="btn btn-outline-dark">Logout <i class="fa-solid fa-right-from-bracket"></i></a>
     </div>
