@@ -23,5 +23,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("apps.api.urls")),
     path("", views.index),
+    path("login/", include("apps.login.urls")),
     path("dashboard/", include("apps.dashboard.urls"))
 ]
