@@ -6,34 +6,42 @@
 {% endblock javascript  %}
 {% block content %}
 <div class="content mx-5 my-5">
-<h2>Today's Attendance</h2>
-<hr>
 <form action="" method="get">
-    <h4>Filter <i class="fa-solid fa-filter"></i></h4>
-    <div class="dropdown d-inline">
-        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Select Class
-        </button>
-        <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="#">9A</a></li>
-            <li><a class="dropdown-item" href="#">9B</a></li>
-            <li><a class="dropdown-item" href="#">10A</a></li>
-            <li><a class="dropdown-item" href="#">10B</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item active" href="#">All</a></li>
-        </ul>
+    <div class="d-flex justify-content-between">
+        <h2>Today's Attendance</h2>
+        <input type="date">
     </div>
-    <div class="dropdown d-inline">
-        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sort By
-        </button>
-        <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item active" href="#">Time</a></li>
-            <li><a class="dropdown-item" href="#">Class</a></li>
-            <li><a class="dropdown-item" href="#">Name</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">None</a></li>
-        </ul>
+    <hr>
+    <h4>Filter <i class="fa-solid fa-filter"></i></h4>
+    <div class="d-flex justify-content-between">
+        <div>
+            <div class="dropdown d-inline">
+                <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Select Class
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="#">9A</a></li>
+                    <li><a class="dropdown-item" href="#">9B</a></li>
+                    <li><a class="dropdown-item" href="#">10A</a></li>
+                    <li><a class="dropdown-item" href="#">10B</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item active" href="#">All</a></li>
+                </ul>
+            </div>
+            <div class="dropdown d-inline">
+                <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Sort By
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item active" href="#">Time</a></li>
+                    <li><a class="dropdown-item" href="#">Class</a></li>
+                    <li><a class="dropdown-item" href="#">Name</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">None</a></li>
+                </ul>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-secondary btn-lg">Apply</button>
     </div>
 </form>
 <hr>
