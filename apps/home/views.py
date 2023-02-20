@@ -8,3 +8,11 @@ def index(request):
 @login_required(login_url="/login")
 def dashboard(request):
     return render(request, "dashboard.html")
+
+@login_required(login_url="/login")
+def records(request):
+    return render(request, "records.html")
+
+@login_required(login_url="/about")
+def about(request):
+    return render(request, "about.html")
