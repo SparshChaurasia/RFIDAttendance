@@ -1,7 +1,7 @@
 import serial
 import requests
 
-PORT = "com5"
+PORT = "com8"
 BAUDRATE = 9600
 
 conn = serial.Serial(PORT, BAUDRATE)
