@@ -13,6 +13,6 @@ def dashboard(request):
 def records(request):
     return render(request, "records.html")
 
-@login_required(login_url="/user")
-def user(request):
-    return render(request, "user.html")
+@login_required(login_url="/login")
+def profile(request):
+    return render(request, "profile.html")
