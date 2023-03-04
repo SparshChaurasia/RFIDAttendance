@@ -4,6 +4,17 @@
     box-sizing: border-box;
 }
 
-/* .content {
-    padding: 3rem 3rem;
-} */
+html {
+    /* Internet Explorer 10+ and Edge */
+    -ms-overflow-style: none;
+
+    /* Firefox */
+    scrollbar-width: none;
+    /* Older versions of Firefox */
+    overflow: -moz-scrollbars-none;
+}
+
+html::-webkit-scrollbar {
+    /* Safari, Chrome and Opera */
+    display: none;
+}

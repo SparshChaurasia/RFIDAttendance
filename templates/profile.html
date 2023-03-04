@@ -1,9 +1,10 @@
 {% extends 'bases/base.html' %}
 {% block title %}Profile{% endblock title %}
 {% load humanize %}
+{% load static %}
 {% block content %}
 <div class="content mx-5 my-5 d-flex">
-        <div style="height:100vh; width:20%;">
+        <div style="height:100vh; max-width:20%;">
             <div>
                 <i class="fa-solid fa-user fa-4x"></i>
                 <p class="mt-3 h3 fw-bold mb-0">{{request.user.get_full_name}}</p>
@@ -51,12 +52,43 @@
                 </p>
             </div>
         </div>
-        <div class="" style="height:100vh; width:80%; padding: 0 8rem;">
-            <h3>Welcome {{ user.first_name }}!</h3>
-            <p>A web based interface for teachers and staff members to view and mark daily attendance of students without the hassle of manual roll call.</p>
+        <div style="height:100vh; width:80%; padding-left: 8rem;">
+            <div>
+                <h3>Hey there 👋, welcome back</h3>
+                <p>This is your profile page.</p>
+            </div>
+            <p class="fw-bold">A web based interface for teachers and staff members to view and mark daily attendance of students without the hassle of manual roll call.</p>
             <br><br><br>
             <h4>Check your attendance now!</h4>
             <a href="/dashboard" class="btn btn-outline-primary btn-lg" role="button">View Dashboard</a>
+        </div>
+        <div style="padding: 0 10rem;">
+            <div>
+                <p class="h4 fw-bold">Tasks</p>
+                <div class="list-group">
+                    <label class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        First task
+                    </label>
+                    <label class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        Second task
+                    </label>
+                    <label class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        Third task
+                    </label>
+                    <label class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        Fourth task
+                    </label>
+                    <label class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="">
+                        Fifth task
+                    </label>
+                </div>
+            </div>
+            <img src="{% static 'media/images/pro1.png' %}" alt="placeholder image" style="width: 30rem; height: auto;">
         </div>
 </div>
 {% endblock content %}
