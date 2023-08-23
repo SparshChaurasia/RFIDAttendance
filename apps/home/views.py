@@ -14,5 +14,5 @@ def records(request):
     return render(request, "records.html")
 
 @login_required(login_url="/login")
-def profile(request):
-    return render(request, "profile.html")
+def attendance(request):
+    return render(request, "attendance.html")
