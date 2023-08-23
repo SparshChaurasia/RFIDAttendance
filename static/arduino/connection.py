@@ -1,7 +1,7 @@
 import serial
 import requests
 
-PORT = "com8"
+PORT = "com11"
 BAUDRATE = 9600
 
 conn = serial.Serial(PORT, BAUDRATE)
@@ -15,7 +15,7 @@ while True:
     print("Response:", res.text)
 
     # with open("static\error.html", "w") as f:
-    #     print(res.text, file=f)
+        # print(res.text, file=f)
 
     print("---------------------")
 conn.close()
