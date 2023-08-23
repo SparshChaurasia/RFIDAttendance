@@ -18,3 +18,7 @@ html::-webkit-scrollbar {
     /* Safari, Chrome and Opera */
     display: none;
 }
+
+.page {
+    padding: 3rem 2rem;
+}
