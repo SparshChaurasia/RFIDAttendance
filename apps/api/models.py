@@ -11,7 +11,7 @@ class Classes(models.TextChoices):
 
 class Status(models.TextChoices):
     _Late = "Late"
-    _OnTime = "On Time"
+    _OnTime = "OnTime"
 
 class Student(models.Model):
     UID = models.CharField(max_length=12, primary_key=True)
@@ -26,12 +26,20 @@ class Student(models.Model):
     def __str__(self):
         return self.Name
 
+
+class Hardware(models.Model):
+    HardwareID = models.AutoField(primary_key=True)
+    HardwareName = models.TextField()
+
+    def __str__(self):
+        return self.HardwareName
+
+
 class Entry(models.Model):
     Stud = models.ForeignKey(Student, models.CASCADE)
-    StudName = models.CharField(max_length=255, null=True) # Split name and class field for json serialization
-    StudClass = models.CharField(max_length=3, null=True)
-    Date = models.DateField(auto_now_add=True, null=True) # Split date and time field for json serialization
-    Time = models.TimeField(auto_now_add=True, null=True)
+    Hw = models.ForeignKey(Hardware, models.CASCADE)
+    Date = models.DateField(auto_now_add=True, null=True) # Add a seprate date field for comparison and sorting
+    Timestamp = models.DateTimeField(auto_now_add=True)
     Status = models.CharField(max_length=10, choices=Status.choices, null=True)
 
     def save(self, *args, **kwargs):
@@ -43,5 +51,5 @@ class Entry(models.Model):
 
     def __str__(self):
         _n = self.Stud.Name
-        _t = self.Date.strftime("%m/%d/%Y")
+        _t = self.Timestamp.strftime("%m/%d/%Y")
         return f"{_n} {_t}"

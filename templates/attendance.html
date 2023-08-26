@@ -2,43 +2,37 @@
 {% block title %}Dashboard{% endblock title %}
 {% load static %}
 {% block javascript %}
-<script src="{% static 'js/ajax.js' %}"></script>
+{% comment %} <script src="{% static 'js/ajax.js' %}"></script> {% endcomment %}
 {% endblock javascript  %}
 {% block content %}
 <div class="content mx-5 my-5">
-<form action="" method="get">
-    <div class="d-flex justify-content-between">
-        <h2>Today's Attendance</h2>
-        <input type="date">
+<form action="/api/list" method="POST">
+    {% csrf_token %}
+    <div class="d-flex">
+        <label for="date" class="h4 me-5">Select Date</label>
+        <input type="date" name="date" id="date">
     </div>
     <hr>
     <h4>Filter <i class="fa-solid fa-filter"></i></h4>
     <div class="d-flex justify-content-between">
         <div>
             <div class="dropdown d-inline">
-                <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Select Class
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="#">9A</a></li>
-                    <li><a class="dropdown-item" href="#">9B</a></li>
-                    <li><a class="dropdown-item" href="#">10A</a></li>
-                    <li><a class="dropdown-item" href="#">10B</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item active" href="#">All</a></li>
-                </ul>
+                <select name="class" id="class" class="btn btn-secondary btn-lg dropdown-toggle">
+                    <option value="all" selected>Select Class</option>
+                    <option value="9A">9A</option>
+                    <option value="9B">9B</option>
+                    <option value="10A">10A</option>
+                    <option value="10B">10B</option>
+                    <option value="all">All</option>
+                </select>
             </div>
             <div class="dropdown d-inline">
-                <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Sort By
-                </button>
-                <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item active" href="#">Time</a></li>
-                    <li><a class="dropdown-item" href="#">Class</a></li>
-                    <li><a class="dropdown-item" href="#">Name</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">None</a></li>
-                </ul>
+                <select name="sort" id="sort" class="btn btn-secondary btn-lg dropdown-toggle">
+                    <option value="none" selected>Sort By</option>
+                    <option value="time">Time of Entry</option>
+                    <option value="alphabetically">Alphabetically</option>
+                    <option value="none">None</option>
+                </select>
             </div>
         </div>
         <button type="submit" class="btn btn-secondary btn-lg">Apply</button>
@@ -54,6 +48,15 @@
       <th scope="col">Time</th>
       <th scope="col">Status</th>
     </tr>
+    {% for entry in entries %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ entry.Stud }}</td>
+            <td>{{ entry.Stud.Class }}</td>
+            <td>{{ entry.Timestamp }}</td>
+            <td>{{ entry.Status }}</td>
+        </tr>
+    {% endfor %}
   </thead>
   <tbody id="table-data-container"> 
   </tbody>

@@ -1,9 +1,12 @@
+from datetime import datetime
+
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 from datetime import date
 from .models import Student, Entry
+
 
 @csrf_exempt
 def r_new(request):
@@ -21,7 +24,7 @@ def r_new(request):
 
     return HttpResponse(200)    
 
-@csrf_exempt
+
 def r_list(request):
     """
     req params: class, sortby
@@ -29,6 +32,22 @@ def r_list(request):
     if request.method != "POST":
         return HttpResponse("Invalid request method!") 
 
-    entry = Entry.objects.all().filter(Date=date.today())
-    res = JsonResponse(list(entry.values()), safe=False)
-    return res
+    date = request.POST.get("date")
+    s_class = request.POST.get("class")
+    sort_by = request.POST.get("sort")
+
+    # print(date, sort_by, s_class)
+    
+    entry = Entry.objects.all()
+    if date != "":
+        date_obj = datetime.strptime(date, f"%Y-%m-%d").date()
+        entry = entry.filter(Date=date_obj)
+    else:
+        entry = entry.filter(Date=datetime.now().date())
+    # elif s_class != "all":
+    #     entry = entry
+    # elif sort_by != "none":
+    #     entry = entry.order_by("Timestamp").values()
+    # print(entry)
+
+    return render(request, "attendance.html", {"entries":entry})
