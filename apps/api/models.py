@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import datetime, date
 
-REPORTING_TIME = datetime.now().time().replace(hour=9, minute=0, second=0, microsecond=0)
+REPORTING_TIME = datetime.now().time().replace(hour=7, minute=30, second=0, microsecond=0)
 
 class Classes(models.TextChoices):
     _9A = "9A"
@@ -37,6 +37,8 @@ class Hardware(models.Model):
 
 class Entry(models.Model):
     Stud = models.ForeignKey(Student, models.CASCADE)
+    StudName = models.CharField(max_length=255, null=True)
+    StudClass = models.CharField(max_length=3, null=True)
     Hw = models.ForeignKey(Hardware, models.CASCADE)
     Date = models.DateField(auto_now_add=True, null=True) # Add a seprate date field for comparison and sorting
     Timestamp = models.DateTimeField(auto_now_add=True)
@@ -47,6 +49,8 @@ class Entry(models.Model):
             self.Status = Status._Late
         else:
             self.Status = Status._OnTime
+        self.StudName = self.Stud.Name
+        self.StudClass = self.Stud.Class
         return super(Entry, self).save(*args, **kwargs)
 
     def __str__(self):

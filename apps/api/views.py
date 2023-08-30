@@ -44,10 +44,13 @@ def r_list(request):
         entry = entry.filter(Date=date_obj)
     else:
         entry = entry.filter(Date=datetime.now().date())
-    # elif s_class != "all":
-    #     entry = entry
-    # elif sort_by != "none":
-    #     entry = entry.order_by("Timestamp").values()
-    # print(entry)
+    if s_class != "all":
+        entry = entry.filter(StudClass=s_class)
+
+    if sort_by == "time":
+        entry = entry.order_by("Timestamp").values()
+    elif sort_by == "alphabetically":
+        entry = entry.order_by("StudName").values()
+    print(entry)
 
     return render(request, "attendance.html", {"entries":entry})

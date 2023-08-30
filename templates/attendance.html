@@ -51,9 +51,9 @@
     {% for entry in entries %}
         <tr>
             <td>{{ forloop.counter }}</td>
-            <td>{{ entry.Stud }}</td>
-            <td>{{ entry.Stud.Class }}</td>
-            <td>{{ entry.Timestamp }}</td>
+            <td>{{ entry.StudName }}</td>
+            <td>{{ entry.StudClass }}</td>
+            <td>{{ entry.Timestamp|naturaltime }}</td>
             <td>{{ entry.Status }}</td>
         </tr>
     {% endfor %}
