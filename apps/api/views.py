@@ -25,6 +25,7 @@ def r_new(request):
     return HttpResponse(200)    
 
 
+@csrf_exempt
 def r_list(request):
     """
     req params: class, sortby

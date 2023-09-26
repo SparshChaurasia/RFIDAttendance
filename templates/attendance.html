@@ -2,7 +2,7 @@
 {% block title %}Dashboard{% endblock title %}
 {% load static %}
 {% block javascript %}
-{% comment %} <script src="{% static 'js/ajax.js' %}"></script> {% endcomment %}
+<script src="{% static 'js/ajax.js' %}"></script>
 {% endblock javascript  %}
 {% block content %}
 <div class="content mx-5 my-5">
@@ -53,7 +53,7 @@
             <td>{{ forloop.counter }}</td>
             <td>{{ entry.StudName }}</td>
             <td>{{ entry.StudClass }}</td>
-            <td>{{ entry.Timestamp|naturaltime }}</td>
+            <td>{{ entry.Timestamp }}</td>
             <td>{{ entry.Status }}</td>
         </tr>
     {% endfor %}
