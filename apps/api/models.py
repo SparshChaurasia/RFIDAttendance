@@ -41,6 +41,7 @@ class Entry(models.Model):
     StudClass = models.CharField(max_length=3, null=True)
     Hw = models.ForeignKey(Hardware, models.CASCADE)
     Date = models.DateField(auto_now_add=True, null=True) # Add a seprate date field for comparison and sorting
+    Time = models.TimeField(auto_now_add=True, null=True) # Add a seprate time field for comparison and sorting
     Timestamp = models.DateTimeField(auto_now_add=True)
     Status = models.CharField(max_length=10, choices=Status.choices, null=True)
 

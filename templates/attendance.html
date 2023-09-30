@@ -23,14 +23,14 @@
                     <option value="9B">9B</option>
                     <option value="10A">10A</option>
                     <option value="10B">10B</option>
-                    <option value="all">All</option>
+                    <option value="all">all</option>
                 </select>
             </div>
             <div class="dropdown d-inline">
                 <select name="sort" id="sort" class="btn btn-secondary btn-lg dropdown-toggle">
                     <option value="none" selected>Sort By</option>
-                    <option value="time">Time of Entry</option>
-                    <option value="alphabetically">Alphabetically</option>
+                    <option value="time">time</option>
+                    <option value="alphabetically">alphabetically</option>
                     <option value="none">None</option>
                 </select>
             </div>
@@ -48,15 +48,6 @@
       <th scope="col">Time</th>
       <th scope="col">Status</th>
     </tr>
-    {% for entry in entries %}
-        <tr>
-            <td>{{ forloop.counter }}</td>
-            <td>{{ entry.StudName }}</td>
-            <td>{{ entry.StudClass }}</td>
-            <td>{{ entry.Timestamp }}</td>
-            <td>{{ entry.Status }}</td>
-        </tr>
-    {% endfor %}
   </thead>
   <tbody id="table-data-container"> 
   </tbody>
