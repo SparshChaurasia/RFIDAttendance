@@ -5,7 +5,7 @@ from django.http import JsonResponse, HttpResponse
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 from datetime import date
-from .models import Student, Entry
+from .models import Student, Entry, Hardware
 
 
 @csrf_exempt
@@ -17,9 +17,12 @@ def r_new(request):
         return HttpResponse("Invalid request method!") 
     
     uid = request.POST.get("uid")
-    stud = Student.objects.get(UID=uid)
+    hw = request.POST.get("hw")
 
-    entry = Entry(Stud=stud, StudName=stud.Name, StudClass=stud.Class)
+    stud = Student.objects.get(UID=uid)
+    hardware = Hardware.objects.get(HardwareName=hw)
+
+    entry = Entry(Stud=stud, StudName=stud.Name, StudClass=stud.Class, Hw=hardware)
     entry.save()
 
     return HttpResponse(200)    
